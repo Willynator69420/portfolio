@@ -1,0 +1,154 @@
+html, body {
+    height: 100%; /* Ensures contents takes up full page */
+    margin: 0; /* Remove default margin */
+    font-family: Bienvenido;
+} 
+
+body {
+    background-color: #222222;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    display: flex; /* Flexbox container */
+    justify-content: space-between; /* Space between the elements */
+    align-items: center; /* Centers items vertically */
+    padding: 0 20px; /* Horizontal padding to give space on the sides */
+    position: relative; /* To control positioning of children */
+}
+
+.nav-linkedin {
+    /* No extra padding or margin needed, just the circle */
+    padding-top: 30px;
+    padding-left: 15px;
+}
+
+.circle {
+  height: 90px;
+  width: 90px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  
+}
+
+.nav-main {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+    padding-right: 20px;
+}
+
+.nav-main a {
+    text-decoration: none;
+    font-size: 25px;
+    
+    color: white;
+}
+
+main {
+    display:flex;
+    justify-content: left;
+    /*align-items: center; */
+    flex: 1; /*Takes up space between header and footer */
+}
+
+.body-main {
+    color: white;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    /* You can add more styles as needed */
+}
+
+.main-content {
+    color: 0; /*Come back to this. This is a single element"*/
+    
+}
+
+/* Animation for rotating circle */
+
+.nav-linkedin{
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 2s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/* Styling for content container (main) */
+
+.holographic-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+    background: #111;
+    padding-left: 10px;
+  }
+  
+  .holographic-card {
+    width: 300px;
+    height: 200px;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: all 0.5s ease;
+  }
+  
+  .holographic-card p {
+    color: #0ff;
+    font-size: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .holographic-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      0deg, 
+      transparent, 
+      transparent 30%, 
+      rgba(0,255,255,0.3)
+    );
+    transform: rotate(-45deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+  }
+  
+  .holographic-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0,255,255,0.5);
+  }
+  
+  .holographic-card:hover::before {
+    opacity: 1;
+    transform: rotate(-45deg) translateY(100%);
+  }
